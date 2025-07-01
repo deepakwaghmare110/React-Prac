@@ -1,0 +1,28 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "This is my react projects for placement.",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepakwaghmare110/React-Prac.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Deepak Waghmare",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepakwaghmare110/React-Prac/issues"
+  },
+  "homepage": "https://github.com/deepakwaghmare110/React-Prac#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

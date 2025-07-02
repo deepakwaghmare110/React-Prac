@@ -33,26 +33,41 @@ const Header = () => {
 const Body = () => {
   return (
     <div className="body">
-      <div className="search">
-        search
+      <div className="search"> search</div>
+      <div className="res-container">
+        <RestroCard
+          resName="Shravani Dhaba"
+          cuisine="Indian, Chinese"
+          rating="5.5"
+          eta="39 mins"
+        />
+        <RestroCard
+          resName="Burger King"
+          cuisine="Burger, Fries"
+          rating="9.3"
+          eta="40 mins"
+        />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
         <RestroCard />
       </div>
     </div>
   );
 };
 
-const RestroCard = () => {
+const RestroCard = (props) => {
   return (
-    <div className="res-container">
-      <h3>Shravani Dhaba</h3>
+    <div className="res">
+      <h3>{props.resName}</h3>
 
       <img
         className="res-img"
         src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/86/c2/c2/photo0jpg.jpg?w=600&h=400&s=1"
       ></img>
-      <h4>Indian, chinese</h4>
-      <h4>4.4 stars</h4>
-      <h4>40 mins</h4>
+      <h4>{props.cuisine}</h4>
+      <h4>{props.rating}</h4>
+      <h4>{props.eta}</h4>
     </div>
   );
 };

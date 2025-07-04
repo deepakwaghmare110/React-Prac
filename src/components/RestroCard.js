@@ -1,15 +1,17 @@
-const RestroCard = (props) => {
+import React from "react";
+
+const RestroCard = () => {
   return (
     <div className="res">
-      <h3>{props.resName}</h3>
-
+      <h3>Jay Malhar Dhaba</h3>
       <img
         className="res-img"
         src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/86/c2/c2/photo0jpg.jpg?w=600&h=400&s=1"
-      ></img>
-      <h4>{props.cuisine}</h4>
-      <h4>{props.rating}</h4>
-      <h4>{props.eta}</h4>
+        alt="restaurant"
+      />
+      <h4>9.0 Rating</h4>
+      <h4>Zomato</h4>
+      <h4>Swiggy</h4>
     </div>
   );
 };

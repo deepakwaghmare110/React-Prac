@@ -1,22 +1,14 @@
+import React from "react";
 import RestroCard from "./RestroCard";
+import resObj from "./resData"; // move data to a separate file
 
 const Body = () => {
   return (
     <div className="body">
-      <div className="search"> search</div>
+      <div className="search">Search</div>
       <div className="res-container">
-        <RestroCard
-          resName="Shravani Dhaba"
-          cuisine="Indian, Chinese"
-          rating="5.5"
-          eta="39 mins"
-        />
-        <RestroCard
-          resName="Burger King"
-          cuisine="Burger, Fries"
-          rating="9.3"
-          eta="40 mins"
-        />
+        <RestroCard />
+        <RestroCard />
         <RestroCard />
         <RestroCard />
         <RestroCard />

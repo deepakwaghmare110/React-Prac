@@ -5,7 +5,7 @@ const RestroCard = ({ resData }) => {
   return (
     <div className="res">
       <h3>{resData.name}</h3>
-      <img className="res-img" src={IMG_URL} alt={resData.name} />
+      <img className="res-img" src={resData.img} alt={resData.name} />
       <h4>{resData.city}</h4>
       <h4>{resData.rating}</h4>
     </div>

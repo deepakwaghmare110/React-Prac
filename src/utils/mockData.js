@@ -12,7 +12,7 @@ const resObj = [
     name: "AIR- An Ivory Region",
     img: "https://b.zmtcdn.com/data/pictures/chains/1/20846491/5f5874eff566a137f530442d56d849cb_featured_v2.jpg",
     city: "New Delhi",
-    rating: "4.0",
+    rating: "4.2",
     cuisines: "North Indian",
   },
   {
@@ -20,7 +20,7 @@ const resObj = [
     name: "Jay Malhar Dhaba",
     img: "https://b.zmtcdn.com/data/pictures/9/21749669/8c58b06f4eff3fe8009d61bb532805eb_featured_v2.jpg",
     city: "Mumbai",
-    rating: "9",
+    rating: "3.8",
     cuisines: "Maharashtrian, Malvani",
   },
   {
@@ -28,7 +28,7 @@ const resObj = [
     name: "Malvan Tandka",
     img: "https://b.zmtcdn.com/data/collections/6922d49fb675d0490edb652abf5ca45f_1727171275.png",
     city: "Kalyan",
-    rating: "9.2",
+    rating: "3.7",
     cuisines: "Malvani",
   },
 ];

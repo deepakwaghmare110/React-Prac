@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RestroCard from "./RestroCard";
 import resObj from "../utils/mockData";
 
@@ -11,6 +11,10 @@ const Body = () => {
     });
     setRestro(filtered);
   };
+
+  useEffect(() => {
+    console.log("UseEffect rendered.");
+  });
 
   return (
     <div className="body">

@@ -4,8 +4,6 @@ import Body from "./components/Body";
 import ReactDOM from "react-dom/client";
 
 const AppLayout = () => {
-  console.log("AppLayout rendered");
-
   return (
     <div className="app">
       <Header />

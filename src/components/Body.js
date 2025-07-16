@@ -12,9 +12,7 @@ const Body = () => {
     setRestro(filtered);
   };
 
-  useEffect(() => {
-    console.log("UseEffect rendered.");
-  });
+  useEffect(() => {});
 
   return (
     <div className="body">

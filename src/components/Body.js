@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import RestroCard from "./RestroCard";
 import resObj from "../utils/mockData";
 
 const Body = () => {
   const [restro, setRestro] = useState(resObj);
+  const [inputSearch, setInputSearch] = useState("");
 
   const handleFilter = () => {
     const filtered = resObj.filter((res) => {
@@ -17,10 +18,20 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search for resturants,cafe src."
+            value={inputSearch}
+            onChange={(e) => setInputSearch(e.target.value)}
+          ></input>
+          <button className="search-btn">Search</button>
+        </div>
         <button className="filter-btn" onClick={handleFilter}>
           Top Rated Resturants Near me
         </button>
       </div>
+
       <div className="res-container">
         {restro.map(
           (

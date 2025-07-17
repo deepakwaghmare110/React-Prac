@@ -14,7 +14,13 @@ const Header = () => {
           <li>About Us</li>
           <li>Contact Us</li>
           <li>Cart</li>
-          <button onDoubleClick={() => setBtn("Logout")}>{btn}</button>
+          <button
+            onClick={() =>
+              btn === "Login" ? setBtn("Logout") : setBtn("Login")
+            }
+          >
+            {btn}
+          </button>
         </ul>
       </div>
     </div>

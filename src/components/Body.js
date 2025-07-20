@@ -5,17 +5,18 @@ import resObj from "../utils/mockData";
 const Body = () => {
   const [restro, setRestro] = useState(resObj);
   const [inputSearch, setInputSearch] = useState("");
+  const [filteredResturant, setFilteredResturant] = useState([]);
 
   const handleFilter = () => {
     const filtered = resObj.filter((res) => {
       return res.rating > 4;
     });
-    setRestro(filtered);
+    setFilteredResturant(filtered);
   };
 
   const handleSearch = () => {
     const filteredResturant = resObj.filter((res) =>
-      res.name.toLowerCase().includes(inputSearch)
+      res.name.toLowerCase().includes(inputSearch.toLowerCase())
     );
     setRestro(filteredResturant);
   };

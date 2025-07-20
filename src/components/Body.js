@@ -1,24 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RestroCard from "./RestroCard";
-import resObj from "../utils/mockData";
+
+import { jsx } from "react/jsx-runtime";
 
 const Body = () => {
-  const [restro, setRestro] = useState(resObj);
-  const [inputSearch, setInputSearch] = useState("");
-  const [filteredResturant, setFilteredResturant] = useState([]);
+  const [listOfResturants, setListOfResturant] = useState([]);
+  const [filteredRestaurant, setFilteredResturant] = useState([]);
 
-  const handleFilter = () => {
-    const filtered = resObj.filter((res) => {
-      return res.rating > 4;
-    });
-    setFilteredResturant(filtered);
-  };
+  const [searchText, setSearchText] = useState("");
 
-  const handleSearch = () => {
-    const filteredResturant = resObj.filter((res) =>
-      res.name.toLowerCase().includes(inputSearch.toLowerCase())
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.240503295232674&lng=73.14454928040504&is-seo-homepage-enabled=true&page_type=DESKTOP_"
     );
-    setRestro(filteredResturant);
+
+    const json = await data.json();
+
+    setListOfResturant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+
+    setFilteredResturant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   return (
@@ -27,27 +35,39 @@ const Body = () => {
         <div className="search">
           <input
             type="text"
-            placeholder="Search for resturants,cafe src."
-            value={inputSearch}
-            onChange={(e) => setInputSearch(e.target.value)}
-          ></input>
-          <button onClick={handleSearch} className="search-btn">
+            className="search-box"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button
+            className="search-btn"
+            onClick={() => {
+              const filteredResturant = listOfResturants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredResturant(filteredResturant);
+            }}
+          >
             Search
           </button>
         </div>
-        <button className="filter-btn" onClick={handleFilter}>
-          Top Rated Resturants Near me
+        <button
+          className="filter-btn"
+          onClick={() => {
+            const filteredList = listOfResturants.filter(
+              (res) => res.info.avgRating > 4
+            );
+            setListOfResturant(filteredList);
+          }}
+        >
+          Top Resturants Near Me
         </button>
       </div>
 
       <div className="res-container">
-        {restro.map(
-          (
-            resturant // on initial level restro is equal resObj but later it gets chnaged when filter method is applied.
-          ) => (
-            <RestroCard resData={resturant} key={resturant.Id} />
-          )
-        )}
+        {filteredRestaurant.map((resturant) => (
+          <RestroCard key={resturant.info.id} resData={resturant} />
+        ))}
       </div>
     </div>
   );
